@@ -34,7 +34,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
-        commit-message: update ${{ DATE }}
+        commit-message: update ${{ env.DATE }}
         files: covid.json
         name: katsugeneration
         email: katsu.generation.888@gamil.com 
