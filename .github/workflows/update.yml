@@ -3,10 +3,10 @@
 
 name: Python application
 
-on:
-  schedule:
+on: push
+#   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 11 * * *'
+#     - cron:  '0 11 * * *'
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
-        commit-message: 'update {{ date +%F }}'
+        commit-message: update ${{ date +%F }}
         files: covid.json
         name: katsugeneration
         email: katsu.generation.888@gamil.com 
