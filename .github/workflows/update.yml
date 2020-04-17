@@ -34,6 +34,6 @@ jobs:
         push-branch: 'master'
         commit-message: 'update %{{ date +%F }}'
         files: covid.json
-        name: ${{ GITHUB_ACTOR }}
+        name: katsugeneration
         email: katsu.generation.888@gamil.com 
 
