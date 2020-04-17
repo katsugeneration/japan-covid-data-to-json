@@ -37,5 +37,5 @@ jobs:
         commit-message: Update ${{ env.DATE }}
         files: covid.json
         name: katsugeneration
-        email: katsu.generation.888@gamil.com 
+        email: katsu.generation.888@gmail.com 
 
