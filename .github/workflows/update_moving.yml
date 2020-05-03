@@ -19,7 +19,7 @@ jobs:
         python-version: 3.8
     - name: Install dependencies
       run: |
-        apt-get -y install fonts-ipafont-gothic
+        sudo apt-get -y install fonts-ipafont-gothic
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Update
@@ -30,8 +30,8 @@ jobs:
       uses: github-actions-x/commit@v2.5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'master'
+        push-branch: 'feature/compare-moving'
         commit-message: Update Moving ${{ env.DATE }}
-        files: covid.json
+        files: moving_images/*.png
         name: katsugeneration
         email: katsu.generation.888@gmail.com 
