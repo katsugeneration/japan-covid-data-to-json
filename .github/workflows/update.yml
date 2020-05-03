@@ -6,7 +6,7 @@ name: Python application
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '30 10 * * *'
+    - cron:  '40 10 * * *'
 
 jobs:
   build:
@@ -26,8 +26,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Update
-      run: python process.py
-      run: python process_byosho.py
+      run: |
+        python process.py
+        python process_byosho.py
     - name: Set date
       run: echo ::set-env name=DATE::$(date +%F)
     - name: Git Commit and Push
