@@ -35,24 +35,24 @@ regions = {
     'Aomori': '青森県',
     'Iwate': '岩手県',
     'Miyagi': '宮城県',
-    'AKita': '秋田県',
+    'Akita': '秋田県',
     'Yamagata': '山形県',
     'Fukushima': '福島県',
     'Ibaraki': '茨城県',
     'Tochigi': '栃木県',
-    'Guma': '群馬県',
+    'Gunma': '群馬県',
     'Saitama': '埼玉県',
     'Chiba': '千葉県',
     'Tokyo': '東京都',
     'Kanagawa': '神奈川県',
     'Yamanashi': '山梨県',
     'Nagano': '長野県',
-    'Nigata': '新潟県',
+    'Niigata': '新潟県',
     'Toyama': '富山県',
     'Ishikawa': '石川県',
     'Fukui': '福井県',
     'Shizuoka': '静岡県',
-    'Aiachi': '愛知県',
+    'Aichi': '愛知県',
     'Gifu': '岐阜県',
     'Mie': '三重県',
     'Shiga': '滋賀県',
@@ -61,7 +61,7 @@ regions = {
     'Hyogo': '兵庫県',
     'Nara': '奈良県',
     'Wakayama': '和歌山県',
-    'Totori': '鳥取県',
+    'Tottori': '鳥取県',
     'Shimane': '島根県',
     'Okayama': '岡山県',
     'Hiroshima': '広島県',
@@ -86,7 +86,7 @@ for k, v in regions.items():
     ax1 = fig.subplots()
     ax2 = ax1.twinx()
 
-    if v not in _df_p_week.columns():
+    if v not in _df_p_week.columns:
         _df_p_week[v] = 0
 
     ax1.bar(dates, _df_p_week[v], color='y', width=2.0, label='新規感染判明数')
