@@ -37,9 +37,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
         commit-message: Update ${{ env.DATE }}
-        files: |
-          covid.json
-          byosho.json
+        files: covid.json byosho.json
         name: katsugeneration
         email: katsu.generation.888@gmail.com 
 
