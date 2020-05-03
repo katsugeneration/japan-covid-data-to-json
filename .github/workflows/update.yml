@@ -27,6 +27,7 @@ jobs:
         pip install -r requirements.txt
     - name: Update
       run: python process.py
+      run: python process_byosho.py
     - name: Set date
       run: echo ::set-env name=DATE::$(date +%F)
     - name: Git Commit and Push
@@ -35,7 +36,7 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
         push-branch: 'master'
         commit-message: Update ${{ env.DATE }}
-        files: covid.json
+        files: covid.json byosho.json
         name: katsugeneration
         email: katsu.generation.888@gmail.com 
 
