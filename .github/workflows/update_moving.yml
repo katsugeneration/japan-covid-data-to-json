@@ -6,7 +6,7 @@ name: Update Moving
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '30 10 * * SUN'
+    - cron:  '40 10 * * SUN'
 
 jobs:
   build:
@@ -32,7 +32,7 @@ jobs:
       uses: github-actions-x/commit@v2.5
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'feature/compare-moving'
+        push-branch: 'master'
         commit-message: Update Moving ${{ env.DATE }}
         files: moving_images/*.png
         name: katsugeneration
