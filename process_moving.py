@@ -27,7 +27,7 @@ df_agg = df.groupby([
         weekly]).mean()
 
 dates = df_agg.index.get_level_values('date')
-_df_p_week = df_p_week.loc[dates[0]:]
+_df_p_week = df_p_week.loc[dates[0]:dates[-1] + datetime.timedelta(days=7)]
 dates = _df_p_week.index.to_list()
 
 regions = {
