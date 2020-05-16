@@ -6,7 +6,7 @@ name: Update Moving
 on:
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '40 10 * * SUN'
+    - cron:  '40 2 * * MON'
   push:
     branches:
       - master
