@@ -10,4 +10,4 @@ df = df.pivot_table(
 df = df.cumsum()
 print(df)
 print(df.sum(axis=1))
-df.to_json('covid.json', orient='index')
+df.iloc[-1].to_json('covid.json', orient='index')
