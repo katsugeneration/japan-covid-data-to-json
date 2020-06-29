@@ -82,6 +82,7 @@ regions = {
 
 for k, v in regions.items():
     df_region = df_agg.xs([k], level=['sub_region_1'])
+    _dates = dates[:len(df_region['workplaces_percent_change_from_baseline'])]
     fig = plt.figure(figsize=(16.0, 9.0))
     ax1 = fig.subplots()
     ax2 = ax1.twinx()
@@ -90,11 +91,11 @@ for k, v in regions.items():
         _df_p_week[v] = 0
 
     ax1.bar(dates, _df_p_week[v], color='y', width=2.0, label='新規感染判明数')
-    ax2.plot(dates[:-1], df_region['workplaces_percent_change_from_baseline'], marker='o', label='職場滞在指数')
-    ax2.plot(dates[:-1], df_region['transit_stations_percent_change_from_baseline'], marker='o', label='公共交通機関滞在指数（電車、バス、など）')
-    ax2.plot(dates[:-1], df_region['parks_percent_change_from_baseline'], marker='o', label='公園滞在指数（公園、海、など）')
-    ax2.plot(dates[:-1], df_region['grocery_and_pharmacy_percent_change_from_baseline'], marker='o', label='食料品・薬局滞在指数（スーパー、食料品店、薬局、など） ')
-    ax2.plot(dates[:-1], df_region['retail_and_recreation_percent_change_from_baseline'], marker='o', label='小売・商業施設滞在指数（飲食店、ショッピングセンター、遊園地、美術館、図書館、映画館、など）')
+    ax2.plot(_dates, df_region['workplaces_percent_change_from_baseline'], marker='o', label='職場滞在指数')
+    ax2.plot(_dates, df_region['transit_stations_percent_change_from_baseline'], marker='o', label='公共交通機関滞在指数（電車、バス、など）')
+    ax2.plot(_dates, df_region['parks_percent_change_from_baseline'], marker='o', label='公園滞在指数（公園、海、など）')
+    ax2.plot(_dates, df_region['grocery_and_pharmacy_percent_change_from_baseline'], marker='o', label='食料品・薬局滞在指数（スーパー、食料品店、薬局、など） ')
+    ax2.plot(_dates, df_region['retail_and_recreation_percent_change_from_baseline'], marker='o', label='小売・商業施設滞在指数（飲食店、ショッピングセンター、遊園地、美術館、図書館、映画館、など）')
 
     ax1.xaxis.set_major_locator(matplotlib.dates.WeekdayLocator(byweekday=0, interval=1))
     ax1.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%Y-%m-%d'))
