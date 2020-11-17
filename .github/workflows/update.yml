@@ -30,7 +30,7 @@ jobs:
         python process.py
         python process_byosho.py
     - name: Set date
-      run: echo ::set-env name=DATE::$(date +%F)
+      run: echo "DATE=$(date +%F)" >> $GITHUB_ENV
     - name: Git Commit and Push
       uses: github-actions-x/commit@v2.5
       with:
