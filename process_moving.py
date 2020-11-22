@@ -5,6 +5,8 @@ import matplotlib.dates
 from matplotlib import pyplot as plt
 
 df_p = pd.read_csv('https://dl.dropboxusercontent.com/s/6mztoeb6xf78g5w/COVID-19.csv', header=0)
+df_p = df_p[['人数', '確定日', '受診都道府県']]
+df_p = df_p.dropna()
 df_pn = df_p.pivot_table(
     values='人数',
     index=pd.DatetimeIndex(pd.to_datetime(df_p['確定日'], format='%m/%d/%Y').dt.strftime('%Y-%m-%d')),
